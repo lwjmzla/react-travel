@@ -46,7 +46,7 @@ export default class Sliders extends React.Component{
   render(){
     let wrapWidth = document.getElementsByTagName('body')[0].offsetWidth
     let ulStyle = {
-      width: (this.props.items.length+1) * wrapWidth,
+      width: (this.props.items.length+1) * wrapWidth, // ! 多一张copy的图
       left: this.state.index * (-wrapWidth),
       transitionDuration:this.props.speed+'s'
     }
