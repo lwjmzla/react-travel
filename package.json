@@ -5,6 +5,7 @@
   "dependencies": {
     "@babel/core": "7.1.6",
     "@svgr/webpack": "2.4.1",
+    "antd": "^3.13.3",
     "axios": "^0.18.0",
     "babel-core": "7.0.0-bridge.0",
     "babel-eslint": "9.0.0",
@@ -120,6 +121,9 @@
     ]
   },
   "devDependencies": {
+    "babel-plugin-import": "^1.11.0",
+    "less": "^2.7.3",
+    "less-loader": "^4.1.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2"
   }

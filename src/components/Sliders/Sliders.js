@@ -1,5 +1,6 @@
 import React from 'react'
 import './Sliders.css';
+import './demo.less';
 export default class Sliders extends React.Component{
   constructor(props){
     super(props)
@@ -15,7 +16,7 @@ export default class Sliders extends React.Component{
         index = 1
         this.$sliderUl.style.transitionDuration = this.props.speed+'s'
         this.setState({index})
-      }, 0);
+      }, 16);
       return
     }
     if (index < 0) {
@@ -26,7 +27,7 @@ export default class Sliders extends React.Component{
         index = this.props.items.length - 1
         this.$sliderUl.style.transitionDuration = this.props.speed+'s'
         this.setState({index})
-      }, 0);
+      }, 16);
       return
     }
     this.setState({index})
@@ -36,14 +37,54 @@ export default class Sliders extends React.Component{
       this.turn(1)
     },this.props.delay * 1000)
   }
+  componentWillMount() {
+    console.log('componentWillMount')
+  }
   componentDidMount() {
+    console.log('componentDidMount')
     this.$sliderUl = document.querySelector('.sliders')
     this.$wrapWidth = document.getElementsByTagName('body')[0].offsetWidth
     if (this.props.autoPlay) {
       this.go()
     }
   }
+  componentWillReceiveProps(newProps) {
+    console.log('componentWillReceiveProps:' + newProps.name)
+  }
+  shouldComponentUpdate(newProps, newState, newContext) { // 组件是否要更新  true就更新
+    console.log('shouldComponentUpdate')
+    // 还要注意  在这里this.state里的是旧数据,newState 是新数据
+    return true // true的话执行  下一个
+}
+  componentWillUpdate(newProps, newState, newContext) {
+    console.log('componentWillUpdate')
+  }  // 还要注意  在这里this.state里的是旧数据,newState 是新数据
+
+  componentDidUpdate (prevProps, prevState) {
+    console.log('componentDidUpdate')
+  }
+  TouchStart = (ev) => {
+    this.startX=ev.touches[0].clientX
+  }
+  TouchMove = (ev) => {
+    this.endX=ev.touches[0].clientX
+    clearInterval(this.$timer)
+  }
+  TouchEnd = (ev) => {
+    if (this.endX ===0) { return } // 相当于没move
+    clearInterval(this.$timer)
+    this.detalX = this.endX - this.startX
+    if (this.detalX < 0) { // 下一页
+      this.turn(1)
+    } else if (this.detalX > 0) { // 上一页
+      this.turn(-1)
+    }
+    this.endX = 0
+    this.go()
+  }
+
   render(){
+    console.log('render')
     let wrapWidth = document.getElementsByTagName('body')[0].offsetWidth
     let ulStyle = {
       width: (this.props.items.length+1) * wrapWidth, // ! 多一张copy的图
@@ -54,7 +95,7 @@ export default class Sliders extends React.Component{
       width: wrapWidth,
     }
     return (
-      <div className="slider-wrapper" onMouseEnter={() => clearInterval(this.$timer)} onMouseLeave={() => this.go()}>
+      <div className="slider-wrapper" onTouchStart={this.TouchStart} onTouchMove={this.TouchMove} onTouchEnd={this.TouchEnd} >
         <ul style={ulStyle} className="sliders">
           {
             this.props.items.map((item, index) => {
@@ -76,6 +117,7 @@ export default class Sliders extends React.Component{
             ))
           }
         </div>
+        <div className="demo">1111</div>
       </div>
     )
   }
