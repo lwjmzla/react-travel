@@ -294,8 +294,10 @@ module.exports = function(webpackEnv) {
         'api': resolveDir('src/api'),
         'mock': resolveDir('src/mock'),
         'pages': resolveDir('src/pages'),
-        'router': resolveDir('router'),
-        'store': resolveDir('store')
+        'router': resolveDir('src/router'),
+        'store': resolveDir('src/store'),
+        'config': resolveDir('src/config'),
+        'resource': resolveDir('src/resource')
       },
       plugins: [
         // Adds support for installing with Plug'n'Play, leading to faster installs and adding
