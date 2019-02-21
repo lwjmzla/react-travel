@@ -1,7 +1,8 @@
 import React from 'react'
 import MenuList from 'config/menuConfig.js'
 import { Menu, Icon } from 'antd';
-import './index.less'
+import { Link, NavLink } from 'react-router-dom'
+import style from './index.less'
 const SubMenu = Menu.SubMenu;
 const MenuItem = Menu.Item;
 class NavLeft extends React.Component{
@@ -27,7 +28,11 @@ class NavLeft extends React.Component{
           </SubMenu>
         )
       } else {
-        return <MenuItem key={item.key}>{item.title}</MenuItem>
+        return (
+          <MenuItem key={item.key}>
+            <NavLink to={item.key}>{item.title}</NavLink>
+          </MenuItem>
+        )
       }
     })
     return menuTreeNode
@@ -35,7 +40,7 @@ class NavLeft extends React.Component{
   render(){
     return (
       <div>
-        <div className="logo">
+        <div className={style.logo}>
           <img src="/assets/logo-ant.svg" alt="" />
           <h1>Imooc MS</h1>
         </div>

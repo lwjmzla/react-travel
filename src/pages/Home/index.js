@@ -1,8 +1,5 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-import './index.styl'
-import {Button} from 'antd'
-import { Row, Col } from 'antd';
+import style from './index.less'
 
 class Home extends React.Component{
   constructor(props){
@@ -11,12 +8,9 @@ class Home extends React.Component{
   }
   render(){
 
-    const style = {
-      padding: '10px 0'
-    }
     return (
-      <div style={style}>
-        11111111111111111
+      <div className={`${style["home-wrap"]}`}>
+      欢迎学习IMooc后台管理系统课程
       </div>
     )
   }

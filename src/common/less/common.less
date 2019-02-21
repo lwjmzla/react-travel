@@ -1,5 +1,6 @@
+@import "./default.less";
 .container{
-  display: flex;
+  display: flex!important;
   .nav-left{
     width: 15%;
     min-width: 180px;
@@ -8,6 +9,7 @@
   }
   .main{
     flex: 1;
+    background: @colorL;
     height: calc(100vh);
   }
   .content{

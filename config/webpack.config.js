@@ -464,12 +464,15 @@ module.exports = function(webpackEnv) {
               ),
             },
             {
-              test: lessRegex,
-              exclude: lessModuleRegex,
+              test: lessRegex, // const lessRegex = /\.less$/;
+              exclude: /node_modules/, 
               use: getStyleLoaders(
                 {
-                  importLoaders: 2,
+                  importLoaders: 2, // !针对@import 的资源之前」有多少个 loader。 0 => 无 loader(默认); 1 => postcss-loader; 2 => postcss-loader, sass-loader
                   sourceMap: isEnvProduction && shouldUseSourceMap,
+                  modules: true,
+                  getLocalIdent: getCSSModuleLocalIdent, // !不知干啥的
+                  localIdentName: '[local]-[hash:base64:5]'  // !类名   编译出来的类名用的
                 },
                 'less-loader'
               ),
@@ -482,13 +485,12 @@ module.exports = function(webpackEnv) {
             // Adds support for CSS Modules, but using SASS
             // using the extension .module.scss or .module.sass
             {
-              test: lessModuleRegex,
+              test: lessRegex,
+              include: /node_modules/,
               use: getStyleLoaders(
                 {
                   importLoaders: 2,
                   sourceMap: isEnvProduction && shouldUseSourceMap,
-                  modules: true,
-                  getLocalIdent: getCSSModuleLocalIdent,
                 },
                 'less-loader'
               ),
