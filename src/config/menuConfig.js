@@ -45,42 +45,42 @@ const menuList = [
     },
     {
         title:'表单',
-        key:'/form',
+        key:'/admin/form',
         icon: 'form',
         children:[
             {
                 title:'登录',
-                key:'/form/login',
+                key:'/admin/form/login',
             },
             {
                 title:'注册',
-                key:'/form/reg',
+                key:'/admin/form/reg',
             }
         ]
     },
     {
         title:'表格',
-        key:'/table',
+        key:'/admin/table',
         icon: 'table',
         children:[
             {
                 title:'基础表格',
-                key:'/table/basic',
+                key:'/admin/table/basic',
             },
             {
                 title:'高级表格',
-                key:'/table/high',
+                key:'/admin/table/high',
             }
         ]
     },
     {
         title:'富文本',
-        key:'/rich',
+        key:'/admin/rich',
         icon: 'file-text'
     },
     {
         title:'城市管理',
-        key:'/city',
+        key:'/admin/city',
         icon: 'solution'
     },
     {

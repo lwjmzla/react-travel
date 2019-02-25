@@ -11,13 +11,13 @@ class Admin extends React.Component{
     this.state = {name: ''}
   }
   render(){
-
+    const props = this.props
     return (
-      <Row className="container">
-        <Col span={3} className="nav-left">
-          <NavLeft></NavLeft>
+      <Row className={style.container}>
+        <Col span={3} className={style['nav-left']}>
+          <NavLeft {...props}></NavLeft>
         </Col>
-        <Col span={21} className="main">
+        <Col span={21} className={style.main}>
           <Header></Header>
           <div className={style.content}>
             {this.props.children}

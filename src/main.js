@@ -14,6 +14,14 @@ import Detail from 'pages/Detail/index.js'
 import Page404 from 'pages/Page404/index.js'
 import Admin from 'pages/Admin/index.js'
 import Button from 'pages/Ui/button.js'
+import Modal from 'pages/Ui/modals.js'
+import Loading from 'pages/Ui/loading.js'
+import Notification from 'pages/Ui/notification.js'
+import Message from 'pages/Ui/message.js'
+import Tab from 'pages/Ui/tab.js'
+import Gallery from 'pages/Ui/gallery.js'
+import Carousel from 'pages/Ui/carousel.js'
+import Login from 'pages/form/login.js'
 
 ReactDOM.render(
   <Router>
@@ -29,6 +37,14 @@ ReactDOM.render(
           }></Route>
           <Route path="/admin/home" component={Home}></Route>
           <Route path="/admin/ui/buttons" component={Button}></Route>
+          <Route path="/admin/ui/modals" component={Modal}></Route>
+          <Route path="/admin/ui/loadings" component={Loading}></Route>
+          <Route path="/admin/ui/notification" component={Notification}></Route>
+          <Route path="/admin/ui/messages" component={Message}></Route>
+          <Route path="/admin/ui/tabs" component={Tab}></Route>
+          <Route path="/admin/ui/gallery" component={Gallery}></Route>
+          <Route path="/admin/ui/carousel" component={Carousel}></Route>
+          <Route path="/admin/form/login" component={Login}></Route>
         </Admin>
       }></Route>
       <Route path="/city" exact component={City}></Route>
