@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom'
 import 'common/css/reset.css';
 import 'common/less/common.less';
+import 'common/stylus/common.styl'
 // import 'common/css/border.css';
 // import 'common/css/iconfont.css';
 // import 'common/stylus/mixins.styl'
@@ -22,6 +23,8 @@ import Tab from 'pages/Ui/tab.js'
 import Gallery from 'pages/Ui/gallery.js'
 import Carousel from 'pages/Ui/carousel.js'
 import Login from 'pages/form/login.js'
+import Register from 'pages/form/register.js'
+import BaseTable from 'pages/table/basetable.js'
 
 ReactDOM.render(
   <Router>
@@ -45,6 +48,8 @@ ReactDOM.render(
           <Route path="/admin/ui/gallery" component={Gallery}></Route>
           <Route path="/admin/ui/carousel" component={Carousel}></Route>
           <Route path="/admin/form/login" component={Login}></Route>
+          <Route path="/admin/form/reg" component={Register}></Route>
+          <Route path="/admin/table/basic" component={BaseTable}></Route>
         </Admin>
       }></Route>
       <Route path="/city" exact component={City}></Route>
