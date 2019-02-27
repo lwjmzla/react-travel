@@ -40,7 +40,7 @@ export default function ajax (options) { // options {type,url,data,loading}
       }
       // 成功了调用resolve()
       let res = response.data
-      if (res.code === 0) {
+      if (parseInt(res.code) === 0) {
         resolve(res)
       } else {
         Modal.info({

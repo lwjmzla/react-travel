@@ -19,7 +19,7 @@ class NavLeft extends React.Component{
     // !ajax  MenuList 为数据
     // const menuTreeNode = this.renderMenu(MenuList)
     axios.get('https://easy-mock.com/mock/5a1152db868584562f60c7b5/example/detail').then((res) => {
-      console.log(res)
+      // console.log(res)
       // !这里ajax获取MenuList
       // const menuTreeNode = this.renderMenu(MenuList) // 强行 重新渲染
       this.setState({

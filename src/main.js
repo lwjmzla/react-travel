@@ -25,6 +25,7 @@ import Carousel from 'pages/Ui/carousel.js'
 import Login from 'pages/form/login.js'
 import Register from 'pages/form/register.js'
 import BaseTable from 'pages/table/basetable.js'
+import HighTable from 'pages/table/hightable.js'
 
 ReactDOM.render(
   <Router>
@@ -50,9 +51,10 @@ ReactDOM.render(
           <Route path="/admin/form/login" component={Login}></Route>
           <Route path="/admin/form/reg" component={Register}></Route>
           <Route path="/admin/table/basic" component={BaseTable}></Route>
+          <Route path="/admin/table/high" component={HighTable}></Route>
+          <Route path="/admin/city" component={City}></Route>
         </Admin>
       }></Route>
-      <Route path="/city" exact component={City}></Route>
       <Route path="/detail/:id" exact component={Detail}></Route>
       <Route component={Page404}></Route>
     </Switch>
